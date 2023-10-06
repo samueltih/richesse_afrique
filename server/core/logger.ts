@@ -1,11 +1,14 @@
-import * as winston from "winston";
+import { createLogger, transports, format } from "winston";
 
-export const logger = winston.createLogger({
+const { combine, json, timestamp } = format;
+const { Console, File } = transports;
+
+export const logger = createLogger({
   level: "info",
-  format: winston.format.json(),
+  format: combine(timestamp(), json()),
   transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({
+    new Console(),
+    new File({
       filename: 'ra.log',
     })
   ],

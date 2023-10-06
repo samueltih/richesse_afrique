@@ -15,6 +15,7 @@ export default {
     "@formkit/nuxt",
     "@vueuse/nuxt",
     /*"nuxt-graphql-client",*/
+    /*"nuxt-graphql-server",*/
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/i18n",
@@ -42,31 +43,9 @@ export default {
       },
     },
   },
-
-  pinia: {
-    autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
-  },
-
-  // Internationalisation
-  i18n: {},
-
-  /* runtimeConfig: {
+  runtimeConfig: {
     public: {
-      GQL_HOST: "./server/graphql/schema.graphql",
-    },
-  }, */
-  plugins: [
-    "~/plugins/animxyz.js",
-    "~/plugins/google-maps.js",
-    "~/plugins/leaflet.js",
-    "~/plugins/vue3-carousel.js",
-    "~/plugins/vue3-star-ratings.js",
-    // "~/plugins/vue3-emoji-picker.js",
-    "~/plugins/vue-magnifier.js",
-    "~/plugins/vue-collapsible-panel.js",
-  ],
-
-  devtools: {
-    enabled: true,
-  },
-};
+      GQL_HOST: 'https://mockend.com/manoj-ap/mockbackend/graphql'
+    }
+  }
+}

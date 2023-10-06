@@ -2,7 +2,7 @@
   <div class="flex gap-4 items-stretch h-screen">
     <div class="hidden lg:flex lg:flex-col lg:gap-2 w-64 bg-green-50">
       <ul class="flex flex-col gap-2 my-2">
-        <menu-item link="/admin/website">
+        <menu-item link="/admin/site">
           <div class="flex gap-4 items-center px-2">
             <Icon icon="ph:globe-light" :height="24" />Website
           </div>
@@ -66,10 +66,29 @@
             <Icon icon="ph:magnifying-glass-light" :height="24" />
           </button>
           <button class="p-2 hover:bg-black hover:bg-opacity-5 rounded-full" title="translate">
-            <Icon icon="ph:translate-light" :height="24" />
+            <dropdown>
+            <template #toggle><Icon icon="ph:translate-light" :height="24" /></template>
+            <dropdown-item>Français</dropdown-item>
+            <dropdown-item>English</dropdown-item>
+          </dropdown>
+
           </button>
           <button class="p-2 hover:bg-black hover:bg-opacity-5 rounded-full" title="notification">
-            <Icon icon="ph:bell-light" :height="24" />
+            <dropdown>
+            <template #toggle>
+              <Badge content="2"><Icon icon="ph:bell-light" :height="24" /></Badge></template>
+            <dropdown-item>
+              <div class="flex flex-col">
+                <span><b>Jane Doe</b> has just placed an order #14578</span>
+                <span class="text-sm text-gray-400">45 minutes ago</span>
+              </div>
+            </dropdown-item>
+            <dropdown-item ><div class="flex flex-col">
+                <p><b>Jane Doe</b> has just placed an order #14578</p>
+                <span class="text-sm text-gray-400">45 minutes ago</span>
+              </div>
+            </dropdown-item>
+          </dropdown>
           </button>
           <button class="p-2 hover:bg-black hover:bg-opacity-5 rounded-full" title="notification">
             <Icon icon="ph:user-light" :height="24" />

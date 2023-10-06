@@ -1,4 +1,4 @@
-import { main } from "../../database/setup";
+import { main } from "../../core/database";
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);

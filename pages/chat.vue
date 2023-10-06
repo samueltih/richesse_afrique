@@ -13,8 +13,14 @@
                 <span class="p-2 shadow bg-white rounded max-w-[50%] text-right">
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam sapiente expedita consequuntur, facere
                         doloremque, labore aut qui voluptatibus reiciendis quia ad, eum quae natus rem mollitia laudantium.
+<<<<<<< HEAD
                         Nulla, ad! Excepturi!</p>
                     <div>15:46</div>
+=======
+                  
+                   ''      Nulla, ad! Excepturi!</p>
+                    <div class="text-sm text-gray-400">15:46</div>
+>>>>>>> 45a1980 (Snapshot at 06/10/2023 17:42)
                 </span>
             </div>
             <div class="flex justify-start">
@@ -22,29 +28,33 @@
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam sapiente expedita consequuntur, facere
                         doloremque, labore aut qui voluptatibus reiciendis quia ad, eum quae natus rem mollitia laudantium.
                         Nulla, ad! Excepturi!</p>
+<<<<<<< HEAD
                     <div>16:00</div>
+=======
+                    <div class="text-sm text-gray-400">16:00</div>
+>>>>>>> 45a1980 (Snapshot at 06/10/2023 17:42)
                 </span>
             </div>
             <div class="flex justify-start">
                 <span class="p-2 shadow bg-white rounded max-w-[50%] text-left">
                     <p>Lorem ipsum dolor</p>
-                    <div>16:05</div>
+                    <div class="text-sm text-gray-400">16:05</div>
                 </span>
             </div>
         </div>
     </div>
     <div class="flex gap-4 bg-stone-50 items-center px-4 py-2 relative">
-        <ClientOnly>
-            <xyz-transition xyz="fade down duration-2">
-                <emoji-picker v-if="showEmojiPicker" class="absolute bottom-full left-4" :native="true"
-                    @select="onSelectEmoji" />
-            </xyz-transition>
-        </ClientOnly>
-        <span>
+        <span ref="picker" class="relative">
             <button class="hover:bg-black hover:bg-opacity-20 hover:cursor-pointer p-2 rounded"
-                @click="handletoggleEmojiPicker">
+                @click="handleToggleEmojiPicker" @mousedown="$event.preventDefault()">
                 <Icon icon="ph:smiley" :height="24" />
             </button>
+            <ClientOnly>
+            <xyz-transition xyz="fade down duration-2">
+                <emoji-picker v-if="showEmojiPicker" class="absolute bottom-full left-4" :native="true"
+                    @select="onSelectEmoji" @mousedown="$event.preventDefault()"/>
+            </xyz-transition>
+        </ClientOnly>
         </span>
         <span class="flex-1 flex gap-2 p-2 bg-white">
             <textarea v-model="message" placeholder="Ecrivez votre message" class="bg-transparent flex-1 outline-none" />
@@ -62,12 +72,33 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
+<<<<<<< HEAD
 // import EmojiPicker from 'vue3-emoji-picker';
 
 const showEmojiPicker = ref<boolean>(false);
 const message = ref<string>('');
 
 function handletoggleEmojiPicker() {
+=======
+
+const picker = ref(null);
+const showEmojiPicker = ref<boolean>(false);
+const message = ref<string>('');
+
+if (process.client) {
+
+    const listener = (event: MouseEvent) => {
+        if (event.target !== picker.value && !event.composedPath().includes(picker.value!)) {
+            showEmojiPicker.value = false;
+        }
+    };
+
+    onMounted(() => { document.addEventListener('click', listener) })
+    onBeforeUnmount(() => {document.removeEventListener('click', listener)})
+}
+
+function handleToggleEmojiPicker() {
+>>>>>>> 45a1980 (Snapshot at 06/10/2023 17:42)
     showEmojiPicker.value = !showEmojiPicker.value;
 }
 

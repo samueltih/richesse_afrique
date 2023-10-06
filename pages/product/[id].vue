@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="flex my-2 gap-4 w-full items-center text-sm">
       <breadcrumbs>
         <breadcrumb-item href="/">Accueil</breadcrumb-item>
@@ -15,6 +14,13 @@
     </div>
     <div style="display: flex; flex-direction: column; align-items: stretch">
       <div class="flex gap-4">
+        <div class="flex flex-col gap-4 my-2">
+          <div class="h-24 w-24 rounded bg-green-100"></div>
+          <div class="h-24 w-24 rounded bg-stone-100"></div>
+          <div class="h-24 w-24 rounded bg-stone-100"></div>
+          <div class="h-24 w-24 rounded bg-stone-100"></div>
+          <div class="h-24 w-24 rounded bg-stone-100"></div>
+        </div>
         <div class="w-[30rem]">
           <Carousel>
             <Slide v-for="slide in 10" :key="slide">

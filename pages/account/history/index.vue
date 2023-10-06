@@ -3,7 +3,7 @@
         <breadcrumb-item href="/account">Account</breadcrumb-item>
         <breadcrumb-item>History</breadcrumb-item>
     </breadcrumbs>
-    <h1 class="text-3xl font-bold my-4">History</h1>
+    <h1 class="text-3xl font-bold my-2">History</h1>
     <div>
         <timeline>
             <timeline-item>First Item <template #icon>1st</template></timeline-item>

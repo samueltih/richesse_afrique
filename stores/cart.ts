@@ -9,7 +9,7 @@ export const useCart = defineStore("cart", {
     },
     removeFromCart(product: any) {
       console.log("Removing from cart...");
-      // this.products.splice(1, 1);
+      this.products.splice(this.products.indexOf(product), 1);
     },
   },
   persist: true,
