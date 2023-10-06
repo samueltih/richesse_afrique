@@ -1,0 +1,3 @@
+<template>
+    Categories section
+</template>

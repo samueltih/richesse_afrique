@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex">
     <div>
-      <img src="/public/argan_01.png" />
+      <img src="/argan_01.png" alt="Product image"/>
     </div>
     <div>
       <h1>Product Name</h1>

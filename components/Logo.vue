@@ -1,12 +1,12 @@
 <template>
   <div>
-    <img class="logo" src="/public/logo.jpeg">
+    <img class="logo" src="/logo.jpeg" alt="logo">
   </div>
 </template>
 
 <style>
 .logo {
-    width: 150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
 }
 </style>

@@ -1,5 +1,10 @@
 {
   "private": true,
+  "author": {
+    "name": "Tih Samuel Mbiyimo'o",
+    "email": "samuel.tih@outlook.com"
+  },
+  "version": "0.0.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -7,11 +12,68 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "nuxt": "^3.0.0-rc.9"
+    "@iconify/vue": "^4.1.1",
+    "@nuxt/devtools": "^0.8.0",
+    "@nuxt/test-utils": "^3.6.1",
+    "@nuxtjs/i18n": "^8.0.0-beta.12",
+    "@pinia-plugin-persistedstate/nuxt": "^1.1.2",
+    "@types/nodemailer": "^6.4.9",
+    "@types/pdfkit": "^0.12.10",
+    "@vite-pwa/nuxt": "^0.1.0",
+    "@vueuse/core": "^10.1.0",
+    "@vueuse/nuxt": "^10.1.0",
+    "autoprefixer": "^10.4.13",
+    "nuxt": "^3.6.1",
+    "postcss": "^8.4.21",
+    "prisma": "^5.3.0",
+    "tailwindcss": "^3.2.4",
+    "vitest": "^0.31.4"
   },
   "dependencies": {
-    "@formkit/nuxt": "^1.0.0-beta.10",
-    "nuxt-graphql-client": "^0.1.17",
-    "sass": "^1.54.0"
+    "@animxyz/core": "^0.6.6",
+    "@animxyz/vue3": "^0.6.7",
+    "@apollo/server": "^4.9.3",
+    "@as-integrations/h3": "^1.1.6",
+    "@dafcoe/vue-collapsible-panel": "^0.2.0",
+    "@formkit/nuxt": "^1.0.0",
+    "@formkit/themes": "^1.0.0",
+    "@nuxt/content": "^2.7.2",
+    "@nuxt/image": "^0.7.1",
+    "@pinia/nuxt": "^0.4.11",
+    "@prisma/client": "^5.3.0",
+    "@sidebase/nuxt-auth": "^0.6.0-beta.5",
+    "@tinymce/tinymce-vue": "^5.1.0",
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
+    "@websitebeaver/vue-magnifier": "^1.1.0",
+    "apexcharts": "^3.41.0",
+    "bcrypt": "^5.1.0",
+    "date-fns": "^2.30.0",
+    "formidable": "^3.5.0",
+    "graphql": "^16.8.0",
+    "handlebars": "^4.7.8",
+    "leaflet": "^1.9.3",
+    "lodash": "^4.17.21",
+    "nodemailer": "^6.9.5",
+    "nuxt-graphql-server": "^3.0.0",
+    "pdfkit": "^0.13.0",
+    "pinia": "^2.1.4",
+    "sass": "^1.54.0",
+    "sharp": "^0.32.1",
+    "socket.io": "^4.7.2",
+    "tinymce": "^6.5.1",
+    "vue3-apexcharts": "^1.4.1",
+    "vue3-carousel": "^0.2.12",
+    "vue3-emoji-picker": "^1.1.7",
+    "vue3-google-map": "^0.15.0",
+    "vue3-markdown-it": "^1.0.10",
+    "vue3-star-ratings": "^1.1.0",
+    "winston": "^3.10.0"
+  },
+  "overrides": {
+    "vue": "latest",
+    "semver": "latest",
+    "optionator": "latest",
+    "socket.io-parser": "latest",
+    "engine.io": "latest"
   }
 }
