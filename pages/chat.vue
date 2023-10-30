@@ -13,14 +13,9 @@
                 <span class="p-2 shadow bg-white rounded max-w-[50%] text-right">
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam sapiente expedita consequuntur, facere
                         doloremque, labore aut qui voluptatibus reiciendis quia ad, eum quae natus rem mollitia laudantium.
-<<<<<<< HEAD
-                        Nulla, ad! Excepturi!</p>
-                    <div>15:46</div>
-=======
                   
                    ''      Nulla, ad! Excepturi!</p>
                     <div class="text-sm text-gray-400">15:46</div>
->>>>>>> 45a1980 (Snapshot at 06/10/2023 17:42)
                 </span>
             </div>
             <div class="flex justify-start">
@@ -28,11 +23,7 @@
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam sapiente expedita consequuntur, facere
                         doloremque, labore aut qui voluptatibus reiciendis quia ad, eum quae natus rem mollitia laudantium.
                         Nulla, ad! Excepturi!</p>
-<<<<<<< HEAD
-                    <div>16:00</div>
-=======
                     <div class="text-sm text-gray-400">16:00</div>
->>>>>>> 45a1980 (Snapshot at 06/10/2023 17:42)
                 </span>
             </div>
             <div class="flex justify-start">
@@ -72,14 +63,6 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-<<<<<<< HEAD
-// import EmojiPicker from 'vue3-emoji-picker';
-
-const showEmojiPicker = ref<boolean>(false);
-const message = ref<string>('');
-
-function handletoggleEmojiPicker() {
-=======
 
 const picker = ref(null);
 const showEmojiPicker = ref<boolean>(false);
@@ -98,7 +81,6 @@ if (process.client) {
 }
 
 function handleToggleEmojiPicker() {
->>>>>>> 45a1980 (Snapshot at 06/10/2023 17:42)
     showEmojiPicker.value = !showEmojiPicker.value;
 }
 
