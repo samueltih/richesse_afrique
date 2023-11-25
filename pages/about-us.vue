@@ -10,10 +10,7 @@
 <script lang="ts" setup>
 import { useCart } from '~/stores/cart';
 
-
 const cart = useCart();
-
-console.log("Cart options: ", cart.products);
 
 definePageMeta({
   layout: 'main'

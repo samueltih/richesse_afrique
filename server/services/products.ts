@@ -1,5 +1,6 @@
 import { prisma } from "../core/database";
 import { logger } from "../core/logger";
+import sharp from "sharp";
 
 /**
  * Adds a product to the database
@@ -9,6 +10,8 @@ import { logger } from "../core/logger";
  */
 export async function addProduct(product: any) {
   // const product = await
+  sharp('input.jpg').resize(200, 100,);
+
   const savedProduct = await prisma.product.create({
     data: {
       name: "Huile d'Argan",
@@ -49,6 +52,23 @@ export async function search(
   filters?: any
 ) {
   try {
+
+    /* const response = await prisma.$runCommandRaw({
+      aggregate: 'Author',
+      pipeline: [
+        {
+          $search: {
+            near: {
+              path: 'createdAt',
+              origin: 1669972894,
+              pivot: 100000000,
+            },
+          },
+        },
+      ],
+      cursor: {},
+    }); */
+
     return await prisma.product.findMany({
       skip: size * (page - 1),
       take: size,

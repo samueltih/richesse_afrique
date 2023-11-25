@@ -16,7 +16,7 @@ export async function parseForm(
   request: IncomingMessage
 ): Promise<{ fields: Fields; files: Files }> {
 
-  return await new Promise(async (resolve, reject) => {
+  return await new Promise((resolve, reject) => {
     
     const form = formidable({
       keepExtensions: true,

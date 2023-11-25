@@ -24,8 +24,6 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-import { Ref } from "vue";
-import TextInput from "./Form/TextInput.vue";
 
 defineProps({
   options: {
