@@ -5,7 +5,7 @@
         </div>
 
         <xyz-transition xyz="fade up duration-2">
-            <table v-if="dropdownVisible" class="absolute left-0 bg-white top-full ra-dropdown-menu shadow-md" @click="dropdownVisible = false">
+            <table ref="tray" v-if="dropdownVisible" class="absolute left-0 bg-white top-full ra-dropdown-menu shadow-md" @click="dropdownVisible = false">
                 <template :key="index" v-for="(dropdownItem, index) of vNodes">
                     <component :is="dropdownItem" />
                     <divider v-if="showDivider && index < vNodes.length - 1" :gap="0" />
@@ -17,6 +17,8 @@
 
 <script lang="ts" setup>
 import { onClickOutside } from '@vueuse/core';
+
+const tray = ref<HTMLTableElement | undefined>(undefined);
 
 const target = ref(null)
 onClickOutside(target, (event) => {

@@ -154,14 +154,11 @@
                 </span>
               </div>
               <divider vertical />
-              <button class="flex gap-2 items-center">
+              <button class="flex gap-2 items-center" @click="(event) => handleAddToCart(product)">
                 <Icon icon="ph:shopping-cart-light" :height="24" />Ajouter au panier
               </button>
             </div>
           </div>
-
-
-
 
         </div>
       </div>
@@ -267,9 +264,9 @@
       <section id="similar-products" role="similar-products">
         <h1 class="text-2xl font-bold my-4">Similar product(s)</h1>
         <div class="flex gap-2 my-4">
-          <product-thumbnail></product-thumbnail>
-          <product-thumbnail></product-thumbnail>
-          <product-thumbnail></product-thumbnail>
+          <product-thumbnail name="Parfum Paule Gaby" category="Parfum"></product-thumbnail>
+          <product-thumbnail name="Huile d'Argan Richesse d'Afrique" category="Huiles essentiels" :price="85"></product-thumbnail>
+          <product-thumbnail name="Huile de Jojoba" category="Huiles essentiels"></product-thumbnail>
         </div>
         <div class="flex my-2 justify-end">
           <paginator :number-of-pages="5" />
@@ -329,6 +326,7 @@
         </div>
       </section>
     </div>
+
   </div>
 </template>
 
@@ -336,7 +334,18 @@
 import { Icon } from '@iconify/vue';
 import VueMagnifier from '@websitebeaver/vue-magnifier';
 
-const rating = ref<number>(4.4)
+const cart = useCart();
+const { convert } = useCurrency();
+
+console.log(await convert(5000, 'USD', 'EUR'));
+
+const product = ref<any>({name: 'Product 1', price: 8000, quantity: 2})
+const rating = ref<number>(4.4);
+const reviews = ref<Array<any>>([]);
+
+function handleAddToCart(product: any) {
+  cart.addToCart({name: product.name, quantity: product.quantity, price: product.price});
+}
 
 definePageMeta({
   layout: 'product-view'

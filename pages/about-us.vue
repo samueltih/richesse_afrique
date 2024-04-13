@@ -8,9 +8,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useCart } from '~/stores/cart';
 
-const cart = useCart();
+const { site } = useSettings();
+
+useHead({
+  title: [site.name, 'A Propos'].join(' - ')
+})
 
 definePageMeta({
   layout: 'main'

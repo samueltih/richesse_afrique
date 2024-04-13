@@ -61,7 +61,6 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-// import EmojiPicker from 'vue3-emoji-picker';
 
 const showEmojiPicker = ref<boolean>(false);
 const text = ref<string>('');

@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import { stat, mkdir } from "fs";
 import { randomBytes } from "crypto";
 import { join } from "path";
-import formidable, { Fields, Files, Part } from "formidable";
+import formidable, { type Fields, type Files, type Part } from "formidable";
 import IncomingForm from "formidable/Formidable";
 import type { IncomingMessage } from "http";
 import { logger } from "./logger";

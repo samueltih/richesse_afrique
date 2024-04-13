@@ -1,6 +1,6 @@
 <template>
   <nav class="flex justify-center flex gap-4">
-    <div class="flex items-center max-w-screen-xl w-full">
+    <div class="flex items-center max-w-screen-2xl w-full">
       <div class="flex-1 flex">
         <my-menu class="lg:hidden">
           <menu-item>
@@ -8,8 +8,8 @@
           </menu-item>
         </my-menu>
         <my-menu class="hidden md:flex flex-1 justify-end">
-          <menu-item link="/">Accueil</menu-item>
-          <menu-item link="/catalog">Catalogue</menu-item>
+          <menu-item link="/">{{ $t('home') }}</menu-item>
+          <menu-item link="/catalog">{{ $t('catalog') }}</menu-item>
         </my-menu>
       </div>
       <div class="hidden md:block">
@@ -17,10 +17,13 @@
       </div>
       <div class="flex-1 flex">
         <my-menu class="hidden md:flex flex-1">
-          <menu-item link="/about-us">A Propos</menu-item>
-          <menu-item link="/blog">Blog</menu-item>
+          <menu-item link="/about-us">{{ $t('aboutUs') }}</menu-item>
+          <menu-item link="/blog">{{ $t('blog') }}</menu-item>
         </my-menu>
         <my-menu class="hidden md:flex">
+          <button type="button" @click="handleLocaleChange">
+            {{ locale }}
+          </button>
           <menu-item link="/chat">
             <Icon icon="ph:chat-centered-light" :height="24" />
           </menu-item>
@@ -42,11 +45,22 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 
+const user = useSupabaseUser();
+
 // function mounted() {
 //   const socket = $nuxtSocket({
 //     channel: "/notifications"
 //   })
 // }
+
+const { site } = useSettings();
+
+const { locale, setLocale } = useI18n();
+
+function handleLocaleChange(event: Event) {
+  console.log("Event: ", event)
+  setLocale(locale.value === 'fr-FR' ? 'en-GB' : 'fr-FR');
+}
 
 </script>
 

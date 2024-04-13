@@ -9,12 +9,12 @@
     <template #content>
       <div class="ra-filter-tray" :style="{ maxHeight: open ? '1000px' : '0px' }">
         <div class="ra-filter-input">
-          <FormKit placeholder="which option" type="text" />
+          <FormKit placeholder="which option" type="text" @input=""/>
         </div>
         <ul class="ra-filter-options">
           <li v-for="(option, index) in options" :key="index" class="ra-filter-option">
             <span class="text-sm">{{ option }}</span>
-            <FormKit type="checkbox"></FormKit>
+            <FormKit type="checkbox" ></FormKit>
           </li>
         </ul>
       </div>

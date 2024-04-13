@@ -39,11 +39,11 @@ export async function main() {
 
 /**
  * 
- * @param page 
- * @param size 
- * @param query 
- * @param filters 
- * @returns 
+ * @param page Page number
+ * @param size Page size
+ * @param query Query
+ * @param filters Criteria
+ * @returns Results
  */
 export async function search(
   page: number = 1,
@@ -53,7 +53,7 @@ export async function search(
 ) {
   try {
 
-    /* const response = await prisma.$runCommandRaw({
+    const response = await prisma.$runCommandRaw({
       aggregate: 'Author',
       pipeline: [
         {
@@ -67,7 +67,7 @@ export async function search(
         },
       ],
       cursor: {},
-    }); */
+    });
 
     return await prisma.product.findMany({
       skip: size * (page - 1),

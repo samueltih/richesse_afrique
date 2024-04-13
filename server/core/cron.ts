@@ -9,3 +9,12 @@ const checkOrdersJob = CronJob.from({
     start: true,
 	timeZone: 'America/Los_Angeles'
 });
+
+const kJob = CronJob.from({
+    cronTime: "* * * * * *",
+    onTick: () => {
+        logger.info("Get ")
+    },
+    start: true,
+	timeZone: 'America/Los_Angeles'
+});

@@ -5,23 +5,22 @@
         </div>
         <div
             :class="['fixed h-screen w-96 top-0 shadow-lg bg-white transition-all z-90 p-4', { '-translate-x-96': !init }]">
-            <slot></slot>
+            <slot />
         </div>
     </Teleport>
 </template>
 
 <script lang="ts" setup>
-
-const init = ref<boolean>(false);
-watch(() => props.open, (value, oldValue) => {
-    setTimeout(() => init.value = value, 0);
-});
-
 const props = defineProps({
     open: {
         type: Boolean,
         default: false
     }
+});
+
+const init = ref<boolean>(false);
+watch(() => props.open, (value, oldValue) => {
+    setTimeout(() => init.value = value, 0);
 });
 
 function close() {

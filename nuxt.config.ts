@@ -1,4 +1,5 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
+
 export default {
   head: {
     meta: [
@@ -7,18 +8,36 @@ export default {
     ],
   },
 
+  //Suoabase
+  supabase: {
+    redirectOptions: {
+      login: "/sign-in",
+      callback: "/confirm",
+      exclude: ["/", "/catalog", "/about-us", "/sign-up"],
+    },
+  },
+
+  components: [
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
+  ],
+
   imports: {
     dirs: ["stores"],
   },
 
   modules: [
+    "@nuxtjs/supabase",
     "@formkit/nuxt",
     "@vueuse/nuxt",
-    /*"nuxt-graphql-client",*/
-    /*"nuxt-graphql-server",*/
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/i18n",
+
+    /*"nuxt-graphql-client",*/
+    /*"nuxt-graphql-server",*/
   ],
 
   css: [
@@ -45,7 +64,8 @@ export default {
   },
   runtimeConfig: {
     public: {
-      GQL_HOST: 'https://mockend.com/manoj-ap/mockbackend/graphql'
-    }
-  }
-}
+      GQL_HOST: "https://mockend.com/manoj-ap/mockbackend/graphql",
+    },
+  },
+
+};

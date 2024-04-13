@@ -1,0 +1,3 @@
+<template>
+    Post preview
+</template>

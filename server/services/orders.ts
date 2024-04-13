@@ -1,4 +1,4 @@
-import { Order } from "@prisma/client";
+import { type Order } from "@prisma/client";
 import { prisma } from "../core/database";
 
 export async function getOrder(orderId: string) {

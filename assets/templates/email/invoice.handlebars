@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Mail template</title>
+    <style>
+      .link { padding: 10px; border-radius: 5px; } .heading { font-size: 16pt;
+      font-weight: bold; text-align: center; } .content { display: flex;
+      flex-direction: column; gap: 1rem; align-items: center; }
+
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <img src="{{ logo }}" alt="Logo"/>
+      <h1 class="heading">Confirm your email account</h1>
+      <p>
+        Hi
+        {{ user }}
+        <br /><br />
+
+        You are one step away from having your account set and ready. Please
+        click on the link below to confirm your email.
+      </p>
+      <div>
+        <a href="{{ link }}" class="link">Confirm your email</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -12,11 +12,12 @@
 
     <div class="flex gap-8 items-center my-2">
         <span>Attributes</span>
-        <span>SEO</span>
-        <span>Home</span>
-        <span>About</span>
+        <NuxtLink to="seo">SEO</NuxtLink>
+        <NuxtLink to="home">Home</NuxtLink>
+        <NuxtLink to="about">About</NuxtLink>
     </div>
 
+    <NuxtPage />
     <section>
         <Formkit type="form">
             <FormKit name="siteName" type="text" label="Site Name" placeholder="Site Name" />
@@ -30,9 +31,3 @@
     </section>
 
 </template>
-
-<script lang="ts" setup>
-definePageMeta({
-    layout: 'console'
-})
-</script>

@@ -11,120 +11,119 @@ const props = defineProps({
   link: {
     type: [String]
   },
-  favorite: {
+  wrongPrice: {
+    type: Number
+  },
+  price: {
+    type: Number,
+    default: 0
+  },
+  wishlist: {
     type: Boolean,
     default: false
   },
-  cart: {
-    type: Boolean,
-    default: false
+  rating: {
+    type: Number,
+    default: 0
+  },
+  discount: {
+    type: Number
   }
 });
 
 const rating = ref<number>(4);
-const favorited = ref<boolean>(props.favorite);
-const cart = ref<boolean>(props.cart)
 
 const emit = defineEmits<{
   (e: 'wishlist', product: any): void,
   (e: 'add-to-cart', product: any): void,
+  (e: 'compare', product: any): void,
+  (e: 'quick-view', product: any): void
+}>();
 
-}>()
+const { locale } = useI18n();
+const { format } = useCurrency();
 
 function handleAddToWishlist($event: Event) {
   $event.preventDefault();
-  favorited.value = !favorited.value;
   emit("wishlist", { name: props.name, category: props.category });
 }
 
 function handleAddToCart($event: Event) {
   $event.preventDefault();
-  cart.value = !cart.value;
   emit("add-to-cart", { name: props.name, category: props.category });
 }
 
 function handleShowQuickView($event: Event) {
   $event.preventDefault();
-  emit("add-to-cart", { name: props.name, category: props.category });
+  emit("quick-view", { name: props.name, category: props.category });
+}
+
+function handleCompare($event: Event) {
+  emit("compare", { name: props.name, category: props.category});
 }
 </script>
 
 <template>
-  <!-- <div class="ra-thumbnail-border">
-  <a :href="link" class="ra-thumbnail relative overflow-hidden">
-    <div class="absolute top-2 left-1">
-      <div class="flex items-center justify-center rounded-full inline-block bg-emerald-500 text-white h-12 w-12">-20%</div>
-    </div>
-    <img class="ra-thumbnail-image w-32" src="/argan_01.png" alt="Thumbnail" />
-    <div class="flex flex-col gap-2">
-      <h2>{{ name }}</h2>
-      <h4 class="text-sm font-bold italic capitalize">{{ category }}</h4>
-      <div class="text-sm flex-1">
-        <p class="text-sm text-ellipsis overflow-hidden">Riche en flavonoïdes aux vertus antioxydantes et toniques circulatoires, le Ginkgo biloba est
-          traditionnellement utilisé comme complément alimentaire pour ses bienfaits sur les fonctions cognitives, la
-          mémoire et la concentration. Cette poudre s'incorpore dans vos boissons ou tisanes.</p>
-      </div>
-      <currency-converter class="ra-thumbnail-price" :amount="2500"></currency-converter>
-    </div>
-    <div class="absolute top-2 right-2 flex gap-2">
-      <button class="button shadow-sm bg-emerald-200 p-2 rounded-xl" @click="handleAddToWishlist" title="Wishlist">
-        <Icon class="transition-colors duration-200" :style="{color: favorited ? 'red' : 'black'}" :height="24" :icon="favorited ? 'ph:heart-straight-fill' : 'ph:heart-straight-light'" />
-      </button>
-      <button class="button shadow-sm bg-emerald-200 p-2 rounded-xl" @click="handleAddToCart" title="Add to cart">
-        <Icon class="transition-colors duration-200" :style="{color: cart ? 'green' : 'black'}" :height="24" icon="ph:shopping-cart-light" />
-      </button>
-      <button class="button transition-colors duration-100 shadow-sm bg-emerald-200 p-2 rounded-xl" @click="handleShowQuickView" title="Quick view">
-        <Icon :style="{color: 'black'}" :height="24" icon="ph:magnifying-glass-light" />
-      </button>
-    </div>
+  <a id="ctn" :href="link" class="bg-black bg-opacity-5 rounded-md w-full relative flex flex-col items-stretch gap-2 hover:cursor-pointer hover:bg-yellow-200 transition-colors">
+    <button @click="handleAddToWishlist($event)" class="absolute top-4 right-4 z-20">
+      <Icon icon="ph:heart-straight" :height="32" />
+      <Icon v-if="wishlist" class="absolute top-0 left-0 text-red-600 -z-10" icon="ph:heart-straight-fill" :height="32" />
+    </button>
 
-  </a>
-</div> -->
-  <div class="bg-black bg-opacity-5 rounded-md w-full flex flex-col items-center gap-2">
-    <div class="relative flex flex-col items-center">
-      <img class="ra-thumbnail-image w-full max-w-xs -px-2" src="/argan_01.png" alt="Thumbnail" />
-      <div class="absolute bottom-2 flex gap-2 items-center">
-        <button class="bg-white rounded-full p-2 shadow">
-          <Icon icon="ic:outline-compare-arrows" :height="16" />
+    <div v-if="discount" class="absolute top-4 left-4 flex">
+      <div class="h-16 w-16 flex items-center justify-center font-bold rounded-full bg-yellow-500 text-lg">
+        -{{ discount }}%
+      </div>
+    </div>
+    
+    <div class="relative flex flex-col items-center self-center">
+      <img class="ra-thumbnail-image w-full lg:h-[23rem] max-w-sm -px-2" src="/argan_01.png" alt="Thumbnail" />
+      <div id="actions" class="absolute bottom-2 flex gap-2 items-center transition-all">
+        <button class="bg-white rounded-full p-2 shadow" @click="handleCompare($event)" title="Compare">
+          <Icon icon="ic:outline-compare-arrows" :height="28" />
+        </button>
+        <button class="bg-white rounded-full p-2 shadow" @click="handleAddToCart($event)" title="Add to cart">
+          <Icon icon="ph:shopping-cart-light" :height="28" />
         </button>
         <button class="bg-white rounded-full p-2 shadow">
-          <Icon icon="ph:heart-straight-fill" :height="16" />
-        </button>
-        <button class="bg-white rounded-full p-2 shadow">
-          <Icon icon="ph:shopping-cart-light" :height="16" />
-        </button>
-        <button class="bg-white rounded-full p-2 shadow">
-          <Icon icon="ph:magnifying-glass-light" :height="16" />
+          <Icon icon="ph:magnifying-glass-light" :height="28" @click="handleShowQuickView($event)" title="Quick view"/>
         </button>
       </div>
     </div>
-    <span class="bg-green-500 bg-opacity-30 text-xs p-1 rounded mx-2">{{ category }}</span>
-    <div class="flex-1 px-2">
-      <div>{{ name }}</div>
+    <span class="bg-green-500 self-center bg-opacity-30 text-xs p-1 rounded mx-2">{{ category }}</span>
+    <div class="flex-1 flex flex-col items-center text-center px-4 uppercase">
+      <div class="text-sm md:text-base">{{ name }}</div>
       <div class="flex gap-1 items-end">
         <star-rating v-model="rating" :showControl="false" :disableClick="true" style="margin: 0px; padding: 0px 0.5rem"
-          starSize="12" starColor="#48ac29" :numberOfStars="5" /><span class="text-sm">(37)</span>
+          starSize="12" starColor="#48ac29"  inactiveColor="#00000045" :numberOfStars="5" /><span class="text-sm">(37)</span>
       </div>
     </div>
-
-    <div class="flex gap-2 items-end w-full p-2">
+    <div class="flex gap-2 items-center p-4">
       <div class="flex flex-col flex-1">
-        <span class="font-bold text-lg text-green-500">$13 000</span>
-        <select class="bg-transparent text-sm rounded self-start">
-          <option value="100">100 ml</option>
-          <option value="150">150 ml</option>
-        </select>
+        <div class="flex gap-2 items-end">
+          <span class="font-bold md:text-xl">{{ format(props.price, locale, 'USD') }}</span>
+          <span v-if="props.wrongPrice" class="line-through text-sm md:text-base">{{ format(props.price, locale, 'USD') }}</span>
+        </div>
+        <div class="text-sm text-stone-500">150 MG</div>
+      </div> 
+      <div>
+        <button class="flex gap-2 items-center">3 <Icon icon="ph:shapes-light" :height="28" @click="handleShowQuickView($event)" title="Variants" /></button>
       </div>
-      <button class="p-1 flex gap-2 rounded-md bg-green-500 bg-opacity-70 text-white items-end text-sm" title="options">
-        <span>2</span> <Icon icon="ph:shapes-light" />
-      </button>
     </div>
-
-  </div>
+  </a>
   
 </template>
 
 <style lang="scss" scoped>
+#ctn:hover #actions {
+  opacity: 1;
+}
+
+#ctn #actions {
+  opacity: 0;
+}
+
+
 .ra-thumbnail-border {
   border-radius: 6px;
 

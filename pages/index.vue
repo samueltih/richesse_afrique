@@ -27,12 +27,14 @@
 
 <script lang="ts" setup>
 
+const { site } = useSettings();
+
 definePageMeta({
   layout: 'main'
 })
 
 useHead({
-  title: "Richesse d'Afrique - Essayez le naturel et le naturel vous sourira",
+  title: [site.name, site.slogan].join(' - '),
   meta: [
     { name: "description", content: "Votre site de vente en ligne pour vos produits naturels" }
   ],

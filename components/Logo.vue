@@ -1,8 +1,19 @@
 <template>
-  <div>
-    <img class="logo" src="/logo.jpeg" alt="logo">
-  </div>
+    <img class="logo" :src="img" :alt="alt">
 </template>
+
+<script lang="ts" setup>
+defineProps({
+  img: {
+    type: String,
+    default: '/logo.jpeg'
+  },
+  alt: {
+    type: String,
+    default: 'Company Logo'
+  }
+})
+</script>
 
 <style>
 .logo {

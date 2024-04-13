@@ -1,3 +1,3 @@
 <template>
-    <div>This is it</div>
+    <h1>Security</h1>
 </template>

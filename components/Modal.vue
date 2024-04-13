@@ -15,9 +15,6 @@
 <script lang="ts" setup>
 
 const init = ref<boolean>(false);
-watch(() => props.open, (value, oldValue) => {
-    setTimeout(() => init.value = value, 0);
-});
 
 const props = defineProps({
     open: {
@@ -25,6 +22,12 @@ const props = defineProps({
         default: false
     }
 });
+
+watch(() => props.open, (value, oldValue) => {
+    setTimeout(() => init.value = value, 0);
+});
+
+console.log("Closing modal...");
 
 function close() {
     init.value = false;
