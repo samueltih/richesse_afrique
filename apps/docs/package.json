@@ -12,7 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "ui": "workspace:*"
+    "@richesse-afrique/ui": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

@@ -1,4 +1,4 @@
-import * as components from "ui";
+import * as components from "@richesse-afrique/ui";
 
 export default defineNuxtPlugin((nuxtApp) => {
     Object.entries(components).forEach(([name, component]) => {
