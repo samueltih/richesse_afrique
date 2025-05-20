@@ -1,0 +1,204 @@
+@font-face {
+  font-family: "Aileron";
+  src: url("/assets/fonts/Aileron-Thin.otf") format("opentype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/assets/fonts/Aileron-UltraLight.otf") format("opentype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/assets/fonts/Aileron-Light.otf") format("opentype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/assets/fonts/Aileron-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/assets/fonts/Aileron-SemiBold.otf") format("opentype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/assets/fonts/Aileron-Bold.otf") format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/assets/fonts/Aileron-Heavy.otf") format("opentype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/assets/fonts/Aileron-Black.otf") format("opentype");
+  font-weight: 900;
+}
+
+/* CSS HEX */
+// --vanilla: #EBDCA5ff;
+// --kelly-green: #4EA832ff;
+// --selective-yellow: #FFB900ff;
+// --white: #FFFFFFff;
+// --kelly-green-2: #68B61Dff;
+
+/* CSS HSL */
+// --vanilla: hsla(47, 64%, 78%, 1);
+// --kelly-green: hsla(106, 54%, 43%, 1);
+// --selective-yellow: hsla(44, 100%, 50%, 1);
+// --white: hsla(0, 0%, 100%, 1);
+// --kelly-green-2: hsla(91, 73%, 41%, 1);
+
+/* SCSS HEX */
+$vanilla: #ebdca5ff;
+$kelly-green: #4ea832ff;
+$selective-yellow: #ffb900ff;
+$white: #ffffffff;
+$kelly-green-2: #68b61dff;
+
+/* SCSS HSL */
+$vanilla: hsla(47, 64%, 78%, 1);
+$kelly-green: hsla(106, 54%, 43%, 1);
+$selective-yellow: hsla(44, 100%, 50%, 1);
+$white: hsla(0, 0%, 100%, 1);
+$kelly-green-2: hsla(91, 73%, 41%, 1);
+
+/* SCSS RGB */
+$vanilla: rgba(235, 220, 165, 1);
+$kelly-green: rgba(78, 168, 50, 1);
+$selective-yellow: rgba(255, 185, 0, 1);
+$white: rgba(255, 255, 255, 1);
+$kelly-green-2: rgba(104, 182, 29, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(
+  0deg,
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+$gradient-right: linear-gradient(
+  90deg,
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+$gradient-bottom: linear-gradient(
+  180deg,
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+$gradient-left: linear-gradient(
+  270deg,
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+$gradient-top-right: linear-gradient(
+  45deg,
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+$gradient-bottom-right: linear-gradient(
+  135deg,
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+$gradient-top-left: linear-gradient(
+  225deg,
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+$gradient-bottom-left: linear-gradient(
+  315deg,
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+$gradient-radial: radial-gradient(
+  #ebdca5ff,
+  #4ea832ff,
+  #ffb900ff,
+  #ffffffff,
+  #68b61dff
+);
+
+:root {
+  font-family: "Aileron";
+}
+
+body {
+  margin: 0px;
+}
+
+.button {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
+}
+
+.button:hover {
+  transition-duration: 0.1s;
+}
+
+.button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 40px springgreen;
+}
+
+.button:active:after {
+  box-shadow: 0 0 0 0 springgreen;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.button:active {
+  top: 1px;
+}

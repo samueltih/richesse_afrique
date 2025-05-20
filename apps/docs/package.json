@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,7 +12,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@richesse-afrique/ui": "workspace:*"
+    "@richesse-afrique/ui": "workspace:*",
+    "@tailwindcss/vite": "^4.1.7",
+    "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
