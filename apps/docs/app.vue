@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Page } from "ui";
+import { Logo } from "@richesse-afrique/ui";
 import { name } from "./package.json";
 
 useHead({
@@ -9,5 +9,5 @@ useHead({
 </script>
 
 <template>
-  <Page :app-name="name" />
+  <Logo :app-name="name" />
 </template>
