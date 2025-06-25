@@ -41,9 +41,12 @@ type Product {
   title: String
   description: String
   status: ProductStatus
+  slug: String
   cover: ProductPhoto
   photos: [ProductPhoto]
   variants: [ProductVariant]
+  tags: [String]
+  price: Int
   createdAt: String
   updateAt: String
 }

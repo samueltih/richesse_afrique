@@ -1,5 +1,5 @@
-import Logo from "./components/logo.vue";
-import Badge from "./components/badge.vue";
+import Logo from "./components/Logo.vue";
+import Badge from "./components/Badge.vue";
 
 // import './assets/styles/global.scss';
 import './assets/styles/tailwind.css';

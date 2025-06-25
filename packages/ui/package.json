@@ -8,18 +8,22 @@
   "scripts": {
     "lint": "eslint .",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest --environment jsdom"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "@vitejs/plugin-vue": "^5.2.4",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
     "eslint-config-custom": "workspace:*",
+    "jsdom": "^26.1.0",
     "tailwindcss": "^4.1.7",
     "tsconfig": "workspace:*",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2",
+    "vitest": "^3.1.4",
     "vue": "^3.4.21",
     "vue-tsc": "^2.2.10"
   },

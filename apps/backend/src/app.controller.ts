@@ -8,10 +8,14 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    const product: Product = {
-      name: 'Collier en pyrite',
-      description: 'Collier faite en pierre de pyrite blanche.',
-    };
+    const product: Product = new Product(
+      'Collier en pyrite',
+      'Collier faite en pierre de pyrite blanche.',
+      [],
+      [],
+      [],
+    );
+
     console.log('Product: ', product);
     return this.appService.getHello();
   }
