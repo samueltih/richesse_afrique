@@ -1,6 +1,7 @@
-query products{
-  products {
-    title
+query searchProducts($query: String) {
+  searchProducts(query: $query) {
+    name
     description
+    price
   }
 }

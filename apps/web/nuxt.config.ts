@@ -2,9 +2,14 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ['nuxt-graphql-client'],
+
+  modules: [
+    "nuxt-graphql-client",
+    "@pinia/nuxt",
+    "pinia-plugin-persistedstate",
+  ],
 
   // Styling
   css: [
@@ -13,15 +18,17 @@ export default defineNuxtConfig({
     // "@/assets/styles/animatexyz.css",
   ],
 
+  imports: {
+    dirs: ["stores"],
+  },
+
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
   },
 
   runtimeConfig: {
     public: {
-      GQL_HOST: 'http://localhost:3015/graphql' // overwritten by process.env.GQL_HOST
-    }
-  }
-})
+      GQL_HOST: "http://localhost:3015/graphql", // overwritten by process.env.GQL_HOST
+    },
+  },
+});
